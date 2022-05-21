@@ -1,12 +1,13 @@
 #!/bin/bash
 #This script stops server and closes ssh client
-echo "Switch case demo starts.."
-case $1 in
-start) echo "starting sq server.."
-echo "started..."
+echo "Do you want to stop the server"
+echo yes or no
+read "answer"
+case $answer in
+yes) echo "starting sq server.."
+sudo init 0
 ;;
 
-stop)
-echo "stopping the server"
-echo "server stopped";;
+no)
+echo "server remains on"
 esac
