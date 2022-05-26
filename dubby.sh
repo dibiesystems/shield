@@ -1,10 +1,16 @@
 #!/bin/bash
 usermgt() {
-echo enter the name of you want to add to a group
+echo enter the name you want to add
 read username
 sudo useradd $username
+sleep 1
 echo $username has been added successfully!
+echo enter password
+read -s password
+echo $password | sudo passwd $username --stdin
+echo To exit type ctrl+C
 }
+
 
 movefile() {
 echo enter the name of the file or directory you want to move
@@ -51,7 +57,11 @@ read answer
 
 case $answer in
 	A)
-		usermgt;;
+		for (( a=1; a>=1;a++))
+		do
+			usermgt
+		done
+		;;
 	B)
 		movefile;;
 	C)
